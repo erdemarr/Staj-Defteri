@@ -123,17 +123,20 @@ Bir hash algoritmasının çakışmaya direncinin kırılması, aynı hash değe
 
 # Günün Kavramsal Kapanışı: Veri Bütünlüğü (Data Integrity) ve Hashing'in Rolü
 
-## 1. Veri Bütünlüğü Nedir ve Nasıl Sağlanır?
-Veri bütünlüğü (data integrity), bir verinin iletim (ağ üzerinden aktarım) veya saklama (disk üzerinde depolama) süreçleri boyunca yetkisiz veya kazara hiçbir değişikliğe uğramadığının, bozulmadığının ve eksiksiz olduğunun garanti edilmesidir. Bu güvence, modern kriptografide temel olarak hashing mekanizmaları aracılığıyla sağlanır.
+Veri bütünlüğü, bir bilginin gönderildiği yolda ya da saklandığı yerde en ufak bir zarara uğramadığından, başkası tarafından kurcalanmadığından veya bozulmadığından emin olmamızı sağlar. Bu işin arkasındaki en büyük kahraman ise hashing mekanizmasıdır. Verinin gizliliğiyle işimiz olmadığında, yani "başkası okumasın" değil de "gelen bilgi yolda değişmesin" dediğimizde devreye özetleme girer.
 
----
+Bu sürecin işleyişini şu şekilde özetleyebilirim:
 
-## 2. Veri Bütünlüğü Doğrulama Akışı
-Gönderen ile alıcı arasında veri bütünlüğünün nasıl korunduğunu ve doğrulandığını şu 4 adımlı akışla özetleyebiliriz:
+1. **Göndericinin Hazırlığı:** Gönderen taraf, karşı tarafa ileteceği dosyayı veya mesajı önce bir hash fonksiyonundan geçirir. Bu işlem sonucunda elinde o veriye ait parmak izi niteliğinde sabit uzunlukta bir özet (hash değeri) kalır.
+2. **Paketleme ve İletim:** Gönderen kişi hem asıl veriyi hem de elde ettiği bu hash değerini karşı tarafa yollar. Burada verinin şifrelenmesine gerek yoktur çünkü amaç gizlemek değil, bütünlüğü korumaktır.
+3. **Alıcının Yeniden Hesaplaması:** Alıcı taraf veriyi teslim aldığında elindeki veriyi alır ve tıpkı gönderenin yaptığı gibi aynı hash fonksiyonundan geçirerek kendi tarafında yeni bir özet hesaplar.
+4. **Karşılaştırma ve Sonuç:** Alıcı, kendi hesapladığı bu yeni değer ile gönderenin yanında getirdiği hash değerini yan yana koyup kıyaslar. Eğer iki değer birbirini tutuyorsa, verinin yolda hiç değiştirilmediği ve bozulmadığı anlaşılır. Eğer ortada tek bir karakterlik bile fark varsa özetler tamamen farklı çıkacağı için bir şeylerin ters gittiği anında anlaşılır.
 
-1. **Özetleme (Hashing):** Gönderen taraf, ileteceği orijinal veriyi (mesajı veya dosyayı) bir hash fonksiyonundan (`SHA-256` vb.) geçirerek sabit uzunlukta benzersiz bir özet değer (`hash digest`) elde eder.
-2. **İletim Süreci:** Gönderen hem orijinal veriyi hem de elde ettiği bu hash özetini karşı tarafa (alıcıya) iletir. (Veri yolda şifrelenmemiş olabilir, çünkü buradaki amaç gizlilik değil bütünlüktür).
-3. **Alıcı Tarafında Yeniden Hesaplama:** Alıcı veriyi teslim aldığında, elindeki orijinal veriyi aynı hash algoritmasından geçirerek kendi yerel özet değerini hesaplar.
-4. **Karşılaştırma (Doğrulama):** Alıcı, hesapladığı yeni hash değerini gönderenin ilettiği hash değeri ile karşılaştırır. 
-   * Eğer iki değer birebir aynı çıkarsa, verinin yolda hiçbir manipülasyona veya bozulmaya uğramadığı kesin olarak doğrulanmış olur (Veri Bütünlüğü Sağlanmıştır).
-   * Eğer değerler farklı çıkarsa, verinin iletim sırasında değiştirildiği veya bozulduğu anlaşılır.
+# Her Zafiyet Kriptografi Zafiyeti Değildir: Log4Shell Örneği
+
+## Log4Shell (CVE-2021-44228) Analizi
+* **Zafiyetin Doğası:** Log4Shell, Java'nın yaygın olarak kullanılan günlükleme (logging) kütüphanesi olan Apache Log4j'de ortaya çıkan ve uzaktan kod çalıştırmaya (RCE) imkan tanıyan kritik bir zafiyettir.
+* **Neden Bu Kadar Geniş Etki Yarattı?:** 
+  * **Yaygın Kullanım:** Log4j kütüphanesi; kurumsal uygulamalardan bulut hizmetlerine, web sunucularından popüler yazılımlara ve oyunlara kadar Java ekosisteminin genelinde nerede ise standart olarak milyonlarca projede gömülü halde yer alıyordu.
+  * **Kritik Yetki:** Zafiyetin sömürülmesi son derece basitti (tek satırlık bir metin girdisi yeterliydi) ve başarılı olduğunda saldırgana sistem üzerinde tam yetki kazandırıyordu.
+* **Sonuç:** Bu olay, siber güvenlikte en güçlü kriptografik yöntemleri kullansanız bile, yazılıma dışarıdan gelen girdilerin doğru doğrulanmaması ve işlenmemesi durumunda sistemin bütünüyle ele geçirilebileceğini ve güvenliğin yalnızca kriptografiden ibaret olmadığını kanıtlayan en net örneklerden biridir.
