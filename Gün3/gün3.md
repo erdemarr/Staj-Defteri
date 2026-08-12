@@ -59,10 +59,12 @@ SHA-256(256 bit): d54ee246dedda7d5fde056cd30aa6c0d3e39b3ae75b34545c818aba3c223af
 1. Durum (Orijinal Dosya) SHA-256 : 1f1d968b68e125e91f606048567f0813c3c65fa34dad2528bcecd99179df55e9
 2. Durum (Değişmiş Dosya)  SHA-256 : b10ff9fd23a9bf61822d585698b2c1e3b521bef880d3252c591e7f400d16cedd
 [!] Gözlem: Dosya içeriğindeki tek karakterlik değişim hash değerini tamamen değiştirdi!
+```
+
+---
 
 ## 2. Teknik Analiz ve Değerlendirme
 
 * **Determinizm ve Çığ Etkisi Birlikteliği:** Yapılan testlerde görüldüğü üzere, aynı metin (`StajGunUclusu`) her defasında birebir aynı MD5, SHA-1 ve SHA-256 çıktılarını üretmiştir (Determinizm). Buna karşın, girdide yapılan sadece tek karakterlik ufak bir değişim (`Staj` -> `staj`), çıktıların tamamen farklılaşmasını sağlamıştır (Çığ Etkisi). Bu iki zıt gibi görünen özellik, güvenli hash fonksiyonlarının temel yapı taşını oluşturur.
 * **Kriptografik Güvenilirlik Boyutu:** Terminal çıktısında yer alan MD5 ve SHA-1 algoritmalarının, SHA-256'ya kıyasla daha kısa özetler (sırasıyla 32 ve 40 karakter) ürettiği görülmektedir. Ancak modern siber güvenlik standartlarında MD5 ve SHA-1'in çakışma zafiyetleri barındırdığı için güvenli olmadığını ve kritik sistemlerde kesinlikle kullanılmaması gerektiğini bir kez daha teyit etmiş oluyoruz.
 * **Veri Bütünlüğü ve Savunma Mekanizması:** Dosya bütünlüğü deneyinde elde edilen hash değişimleri, hash özetlerinin veriyi şifrelemediğini, aksine verinin parmak izini çıkardığını net bir şekilde göstermektedir. Dosya içeriğindeki tek bir baytlık veya karakterlik sapma, özet değerin tamamen değişmesine yol açarak sistemlerin veya kullanıcıların yoldaki bozulmaları ya da yetkisiz müdahaleleri anında tespit etmesini sağlar.
-
