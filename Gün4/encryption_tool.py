@@ -93,22 +93,22 @@ if __name__ == "__main__":
     
     # 2. Türkçe Karakter Deneyi (Gün 2)
     print("\nTürkçe Karakter Deneyi Başlıyor...")
-    turkce_metin = "Şifreli arama & test"
+    turkce_metin = "erdemarr"
     base64_islem(turkce_metin)
     url_islem(turkce_metin)
     
     # 3. Parola Base64 Deneyi (Gün 2)
     print("\nParola Base64 Güvenlik Testi...")
-    parola = "GizliSifre123!"
+    parola = "erdemarr"
     base64_islem(parola)
     
     # 4. Hashing ve Çığ Etkisi Deneyleri (Gün 3)
     print("\nGün 3 Hashing ve Çığ Etkisi Testleri Başlıyor...")
-    hashing_ve_cig_etkisi_islem("StajGunUclusu")
-    hashing_ve_cig_etkisi_islem("stajGunUclusu")
+    hashing_ve_cig_etkisi_islem("erdemarr")
+    hashing_ve_cig_etkisi_islem("Erdemarr")
     
     # 5. Dosya Bütünlüğü Deneyi (Gün 3)
     dosya_butunlugu_deneyi()
     
     # 6. AES Simetrik Şifreleme Deneyi (Gün 4)
-    aes_sifreleme_deneyi("Staj Gun 4 Gizli Veri Mesaji")
+    aes_sifreleme_deneyi("erdemarr")

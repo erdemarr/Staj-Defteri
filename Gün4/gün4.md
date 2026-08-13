@@ -167,16 +167,16 @@ Google'a ait HTTPS sertifikası OpenSSL ile incelendi.
 # Haftanın Karşılaştırması ve Dönüşüm Analizi
 
 ## 1. Aynı Metin Üzerindeki Üç Dönüşümün Çıktıları
-Girdi Metni: `"Erdem"`
+Girdi Metni: `"erdemarr"`
 
 * **1. Kodlama (Base64 Encoding):**
-  * *Çıktı:* `RXJkZW0=`
+  * *Çıktı:* `ZXJkZW1hcnI=`
   * *Açıklama:* Veriyi sadece okunabilir/taşınabilir başka bir formata dönüştürür.
 * **2. Hashing (SHA-256):**
-  * *Çıktı:* `3b2b81404c0d0c3547f6cfdd55a1599320e4de3a52bb4a80604b3a4a75367878`
+  * *Çıktı:* `edfe9e09b2fbe5243098e5282e5b0fff31ae9450e7ff830c1980087626994399`
   * *Açıklama:* Verinin sabit uzunlukta benzersiz parmak izini (özetini) çıkarır.
 * **3. Simetrik Şifreleme (AES / Fernet):**
-  * *Çıktı:* `gAAAAAB... (Rastgele IV ve şifreli bayt dizisi)`
+  * *Çıktı:* `gAAAAABqfbeZVNMEE_3wOkR7IyEPeUPjfMhg7PZHWZEEtEDdKFqoMPsc8kZ56m_PkMAuDnmF1fuFBZYhj4gUd9SdWJdbgkSfkA== (Rastgele IV ve şifreli bayt dizisi)`
   * *Açıklama:* Veriyi anahtar yardımıyla gizli ve okunamaz bir formata getirir.
 
 ---
