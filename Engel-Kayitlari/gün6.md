@@ -37,8 +37,43 @@ Makine içerisindeki gereksiz servisler (SSH, vb.) ihtiyaç duyulmadıkça kıs�
 Güvenlik uzmanı olarak, altyapıyı kullanılamaz kılmak yerine, riskin bilincinde olarak kontrollü ve izole bir çalışma ortamı oluşturmak tercih edilmiştir.
 
 ### Kaynak
-VirtualBox Kullanım Kılavuzu.
+* VirtualBox Kullanım Kılavuzu.
 
-Windows 11 Donanım Sanallaştırma Gereksinimleri.
+* Windows 11 Donanım Sanallaştırma Gereksinimleri.
 
-Hata analizi ve çözüm sürecinde yapay zekâ desteği.
+* Hata analizi ve çözüm sürecinde yapay zekâ desteği.
+
+---
+
+## Engel 2 - VirtualBox Ubuntu Siyah Ekran / Görüntü Gelmeme Sorunu
+
+**Tarih:** 17.08.2026  
+**İlgili Modül / Ortam:** Oracle VM VirtualBox & Ubuntu (64-bit)  
+
+### **Sorun**
+Bandit wargame platformunda pratik yapmak ve gerekli araçları kurmak amacıyla VirtualBox üzerinde kurulu olan Ubuntu 64-bit sanal makinesi başlatılmak istendi. Makine ayrı bir pencerede çalışır duruma geçtiği ("Çalışıyor" durumunda olduğu) ve arka planda çalıştığı halde, sanal makine ekranında uzun süre boyunca hiçbir grafik arayüz ya da konsol çıktısı görünmedi; ekran tamamen düz siyah olarak asılı kaldı.
+
+### **Hata Mesajı**
+Doğrudan bir pop-up hata kodu veya yazılı sistem uyarısı dönmedi. Sistem durumu:
+> `Sanal makine durumu: "Çalışıyor" / Önizleme ve konsol ekranı: Boş siyah ekran (Black Screen of Death / Display Hang)`
+
+### **Denenenler**
+1. **Oturumu Kapatıp Yeniden Başlatma (ACPI / Hard Reset):**
+   * *Uygulama:* VirtualBox Yöneticisi üzerinden sanal makineye kapatma/gücü kesme komutu verilip tekrar açıldı.
+   * *Sonuç:* Makine yeniden açıldığında sorun devam etti, görüntü yine siyah ekranda kaldı.
+2. **Grafik Denetleyicisi Değişimi:**
+   * *Uygulama:* Sanal makine kapatıldıktan sonra `Ayarlar > Ekran > Grafik Denetleyicisi` ayarı incelendi. Varsayılan olarak seçili olan `VMSVGA` denetleyicisi `VBoxSVGA` olarak değiştirildi ve 3D Hızlandırma ayarları optimize edildi.
+   * *Sonuç:* Sanal makine başlatıldığında ekran sinyali başarıyla alındı ve Ubuntu masaüstü/giriş ekranı sorunsuz bir şekilde yüklendi.
+
+### **Çözüm**
+VirtualBox üzerindeki sanal makine tamamen kapatıldıktan sonra:
+1. `Ayarlar (Settings) > Ekran (Display)` sekmesine gidildi.
+2. **Grafik Denetleyicisi (Graphics Controller)** ayarı `VMSVGA` modundan `VBoxSVGA` moduna getirildi.
+3. Değişiklikler kaydedilip makine yeniden başlatıldı.
+
+**Neden İşe Yaradı?**  
+VirtualBox'un yeni sürümlerinde Linux konuk sistemler için varsayılan olarak gelen `VMSVGA` denetleyicisi, bazı ana makine (Host) GPU sürücüleri ve Xorg/Wayland görüntü sunucuları ile uyuşmazlık yaşayabilmekte ve sanal ekran arabelleğini (framebuffer) doğru render edemeyerek siyah ekranda kilitlenmektedir. Grafik denetleyicisinin `VBoxSVGA` olarak değiştirilmesi, VirtualBox'un kendi yerel sanallaştırılmış ekran bağdaştırıcısını devreye sokarak sürücü çakışmasını ortadan kaldırmış ve video sinyalinin sanal ekrana başarıyla aktarılmasını sağlamıştır.
+
+### **Kaynak**
+* Hata analizi ve çözüm sürecinde yapay zekâ desteği
+* Oracle VM VirtualBox User Manual - Display Settings & Virtual Graphics Adapters documentation

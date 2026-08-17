@@ -41,12 +41,23 @@ Siber güvenlik alanında en kritik becerilerden biri, bilinmeyeni hızlı ve do
 ### Kurulum Detayları
 *   **Platform:** VirtualBox (Sanal Makine Yöneticisi).
 *   **İşletim Sistemi:** Ubuntu 24.04.1 LTS.
-*   **Yapılandırma Notları:** RAM: 4096 MB, İşlemci: 1, Disk: 25 GB, Ağ: NAT (Varsayılan ayarlarda bırakılmıştır). Bu değerlerin optimizasyonu ilerleyen günlerde tekrar değerlendirilecektir.
+*   **Yapılandırma Notları:** RAM: 2048 MB, İşlemci: 1, Disk: 25 GB, Ağ: NAT (Varsayılan ayarlarda bırakılmıştır). Bu değerlerin optimizasyonu ilerleyen günlerde tekrar değerlendirilecektir.
 
-### Güvenlik Kararı ve Risk Analizi
-VirtualBox kurulumu sırasında sanallaştırma sürecinde yapılan değişiklik aşağıda gerekçelendirilmiştir:
+---
 
-*   **Karşılaşılan Sorun:** VirtualBox üzerinde Ubuntu sanal makinesini başlatmaya çalıştığımda "VT-x/AMD-V is not available (VERR_VMX_NO_VMX)" hatasını aldım. Sanal makine bu donanım desteği olmadan başlatılamadı.
-*   **Yapılan Değişiklik:** Bilgisayarın BIOS/UEFI menüsüne girerek CPU yapılandırması altındaki "Intel Virtualization Technology" (veya AMD sistemlerde SVM Mode) ayarını "Disabled" durumundan "Enabled" durumuna getirdim.
-*   **Özelliğin İşlevi:** Bu özellik, işlemcinin fiziksel çekirdeklerini sanal makinelere doğrudan paylaştırmasını sağlayan donanım tabanlı bir sanallaştırma desteğidir. İşletim sisteminin ve sanallaştırma yazılımının CPU komut setlerine donanım seviyesinde erişmesine olanak tanır.
-*   **Güvenlik Riski ve Karar:** Sanallaştırma teknolojisinin aktif edilmesi, teorik olarak bir saldırganın sanal makineyi kullanarak ana işletim sistemine (Hypervisor Breakout) sızma ihtimalini doğurabilir. Ancak, lab ortamında izole bir Ubuntu üzerinde çalışacağım ve bu makineyi ağ güvenliği analizleri için kullanacağım göz önüne alındığında, bu risk kabul edilebilir seviyededir. Güvenliği sağlamak adına, sanal makine içerisinde gereksiz servisleri kapatmayı ve ağ yapılandırmasını kısıtlamayı bir "güvenlik katmanı" olarak ekliyorum. Bir güvenlik uzmanı olarak, altyapıyı kullanılamaz hale getirecek kadar kısıtlayıcı olmak yerine, riskin farkında olarak kontrollü bir çalışma ortamı oluşturmayı tercih ediyorum.
+## Günlük Linux Alıştırması (OverTheWire: Bandit - Seviye 0 → 4)
+
+Linux komut satırı yetkinliklerini geliştirmek amacıyla OverTheWire Bandit wargame platformunda Seviye 0'dan Seviye 4'e kadar olan görevler tamamlanmıştır.
+
+*   **Bandit Level 0 → Level 1:**
+    *   **Görev:** Home dizininde yer alan `readme` adlı dosyadan bir sonraki seviyenin şifresini okumak.
+    *   **Çözüm / Kullanılan Komutlar:** `ssh` ile sunucuya bağlanılmış, `cat readme` komutu ile dosya içeriğindeki şifre okunmuştur.
+*   **Bandit Level 1 → Level 2:**
+    *   **Görev:** Home dizininde tire (`-`) adı verilen özel karakterle adlandırılmış dosyadaki şifreyi okumak.
+    *   **Çözüm / Kullanılan Komutlar:** Komut satırında `-` işareti parametre başlangıcı olarak algılandığı için dosya yolu belirtilirken göreceli yol kullanılmış, `cat ./-` komutu ile dosya içeriğine erişilmiştir.
+*   **Bandit Level 2 → Level 3:**
+    *   **Görev:** Dosya adında boşluklar içeren (`--spaces in this filename--`) dosyadaki şifreyi okumak.
+    *   **Çözüm / Kullanılan Komutlar:** Boşluk içeren dosya adlarını işlemek için tırnak işareti kullanılmış, `cat "--spaces in this filename--"` komutu ile şifre okunmuştur.
+*   **Bandit Level 3 → Level 4:**
+    *   **Görev:** `inhere` dizini altında bulunan gizli (hidden) dosyadan şifreyi bulmak.
+    *   **Çözüm / Kullanılan Komutlar:** `inhere` dizinine geçilmiş, gizli dosyaları listelemek için `ls -a` komutu kullanılmış ve bulunan gizli dosya `cat ./.hidden` komutu ile okunmuştur.
