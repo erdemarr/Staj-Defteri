@@ -17,18 +17,18 @@ Bilgi güvenliği, formatına ve ortamına bakılmaksızın (kâğıt evrak, sö
 
 ## Haftanın Dönüşümleri ile CIA Eşleştirmesi (Kapanış Cümlesi)
 
-Bu hafta öğrendiğimiz dönüşüm mekanizmalarının her biri CIA üçlüsünün farklı bir ayağına hizmet etmektedir: Şifreleme gizliliği, özetleme (hashing) ise bütünlüğü sağlar; kodlama (encoding) ise herhangi bir güvenlik amacı taşımadığı için bu üçlüden hiçbirine hizmet etmez. Erişilebilirlik ise bu hafta teknik olarak ele almadığımız operasyonel bir alandır.
+Bu hafta öğrendiğimiz dönüşüm mekanizmalarının her biri CIA üçlüsünün farklı bir ayağına hizmet etmektedir: Şifreleme gizliliği, özetleme (hashing) ise bütünlüğü sağlar; kodlama (encoding) ise herhangi bir güvenlik amacı taşımadığı için bu üçlüden hiçbirine hizmet etmez. Erişilebilirlik ise bu hafta ele almadığımız operasyonel bir alandır.
 
 ## Kullanıcı Odaklı Tehditler ve Oltalama (Phishing) Türleri
 
 Teknik önlemlerin çoğunu devre dışı bırakan en yaygın saldırı türü sosyal mühendisliktir. Bu tehditlerin başında gelen oltalama (phishing) türleri ve dikkat edilmesi gereken hususlar şunlardır:
 
 * **Klasik Oltalama (Phishing):** Geniş kitlelere rastgele gönderilen, genellikle banka, e-posta sağlayıcısı veya kurumsal kimlik taklidi yapan genel dolandırıcılık e-postalarıdır.
-  * *Çalışanı Ne Dikkat Etmeli?:* Genel hitaplar (örneğin "Sayın Müşterimiz"), resmi olmayan ve kurumla eşleşmeyen gönderen adresleri, panik yaratmaya çalışan aciliyet dili.
+  * *Çalışanı Neye Dikkat Etmeli?:* Genel hitaplar (örneğin "Sayın Müşterimiz"), resmi olmayan ve kurumla eşleşmeyen gönderen adresleri, panik yaratmaya çalışan aciliyet dili.
 * **Hedefli Oltalama (Spear Phishing):** Belirli bir kişi veya çalışan hakkında önceden açık kaynaklardan (sosyal medya vb.) bilgi toplanarak kişiselleştirilmiş, ikna kabiliyeti yüksek saldırılardır.
-  * *Çalışan Ne Dikkat Etmeli?:* E-postanın içeriğinde kişinin projeleri, unvanı veya günlük işleriyle ilgili nokta atışı detayların yer alması, beklenmeyen dosya talepleri veya yönlendirmeler.
+  * *Çalışan Neye Dikkat Etmeli?:* E-postanın içeriğinde kişinin projeleri, unvanı veya günlük işleriyle ilgili nokta atışı detayların yer alması, beklenmeyen dosya talepleri veya yönlendirmeler.
 * **Balina Avı (Whaling):** Şirket CEO'su, CFO'su veya üst düzey yöneticileri hedef alan, yüksek maliyetli gizli finansal işlemler veya hassas veri transferini amaçlayan özel oltalama türüdür.
-  * *Çalışan Ne Dikkat Etmeli?:* Üst yönetim baskısı, gizlilik vurgusu yapılarak standart onay süreçlerinin atlanmasının istenmesi, olağandışı hesaplara acil para transferi talepleri.
+  * *Çalışan Neye Dikkat Etmeli?:* Üst yönetim baskısı, gizlilik vurgusu yapılarak standart onay süreçlerinin atlanmasının istenmesi, olağandışı hesaplara acil para transferi talepleri.
 
 ---
 
@@ -103,5 +103,5 @@ Günümüzde güçlü simetrik veya asimetrik algoritmalarla şifrelenerek güve
 ---
 
 ## Hafta Özeti
-Bu hafta veri dönüşümlerinin teknik temellerinden başlayıp şifreleme mekanizmalarına, dijital imzalara, kurumsal süreçlere ve insan faktörüne uzanan çok katmanlı bir öğrenme süreci geçirdim. Kodlama, hashing ve simetrik/asimetrik şifreleme arasındaki ince çizgileri, bunların CIA üçlüsüyle olan doğrudan bağlarını ve protokol tasarımlarındaki incelikleri net bir şekilde kavradım. En çok kafama oturan ve pratik yaparak bizzat deneyimlediğim konu, şifrelemenin kodlama tarafının birkaç satırdan ibaret olduğu ancak asıl zorluğun ve kritik eşiğin güvenli anahtar yönetiminde yattığı gerçeğiydi. Python ile kendi aracımı geliştirirken secret.key dosyasının yönetimi ve simetrik şifrelemenin pratik karşılığı bu kavramı zihnimde somutlaştırdı. En çok zorlandığım nokta ise asimetrik şifrelemedeki anahtar yönlerinin (hangi anahtarla şifrelenip hangisiyle çözüldüğü) dijital imza mekanizmasında neden tersine döndüğünü mantıken oturtmak oldu; bunu hashing adımları ve imzalama akışını adım adım kağıt üzerinde çizerek, OpenSSL testleriyle pekiştirerek aştım. Güvenliğin yalnızca saf matematiksel algoritmalardan ibaret olmadığını; insan faktörünün, oltalama tehditlerinin ve protokol açıklarının sistemi doğrudan etkilediğini görerek haftayı tamamladım.
+Bu hafta veri dönüşümlerinin teknik temellerinden başlayıp şifreleme mekanizmalarına, dijital imzalara, kurumsal süreçlere ve insan faktörüne uzanan bir öğrenme süreci geçirdim. Kodlama, hashing ve simetrik/asimetrik şifreleme arasındaki ince çizgileri, bunların CIA üçlüsüyle olan doğrudan bağlarını ve protokol tasarımlarındaki incelikleri net bir şekilde kavradım. En çok kafama oturan ve pratik yaparak bizzat deneyimlediğim konu, şifrelemenin kodlama tarafının birkaç satırdan ibaret olduğu ancak asıl zorluğun ve kritik eşiğin güvenli anahtar yönetiminde yattığı gerçeğiydi. Python ile kendi aracımı geliştirirken secret.key dosyasının yönetimi ve simetrik şifrelemenin pratik karşılığı bu kavramı zihnimde somutlaştırdı. En çok zorlandığım nokta ise asimetrik şifrelemedeki anahtar yönlerinin (hangi anahtarla şifrelenip hangisiyle çözüldüğü) dijital imza mekanizmasında neden tersine döndüğünü mantıken oturtmak oldu; bunu hashing adımları ve imzalama akışını adım adım inceleyerek, OpenSSL testleriyle pekiştirerek aştım. Güvenliğin yalnızca saf matematiksel algoritmalardan ibaret olmadığını; insan faktörünün, oltalama tehditlerinin ve protokol açıklarının sistemi doğrudan etkilediğini görerek haftayı tamamladım.
 
