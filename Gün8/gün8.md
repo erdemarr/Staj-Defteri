@@ -77,7 +77,7 @@ Gerçek kurumlarda varlık envanteri tutmak, bir güvenlik analistinin olay anı
 
 | Makine Adı | İşletim Sistemi | Rolü | IP Adresi (Lab) |
 | :--- | :--- | :--- | :--- |
-| **Ubuntu-Lab** | Ubuntu 22.04 | Analiz & Saldırı | 192.168.10.10 |
+| **Ubuntu-Lab** | Ubuntu 24.04.02 | Analiz & Saldırı | 192.168.10.10 |
 | **Win-Lab** | Windows 11 | Hedef & Kurban | 192.168.10.20 |
 
 ### 3. Ping Testi ve Gözlemler
