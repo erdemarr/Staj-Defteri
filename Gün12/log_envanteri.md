@@ -1,0 +1,7 @@
+## Log Envanteri (Gün 1)
+
+| Makine / Sistem | Log Kaynağının Adı | Depolandığı Yer (Konum) | Kaydettiği Olay Türleri | Okuma / Sorgulama Aracı | Detaylı Açıklama & Önem |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Linux (Ubuntu / VirtualBox)** | `systemd-journald` (Journald) | `/run/log/journal/` veya `/var/log/journal/` | Çekirdek mesajları, sistem servis durumları, donanım olayları ve genel sistem günlükleri (ikili format). | `journalctl` | Modern Linux dağıtımlarında varsayılan olarak gelen, logları sıkıştırılmış ve indekslenmiş ikili formatta tutan gelişmiş günlükleme altyapısıdır. |
+| **Linux (Ubuntu / VirtualBox)** | Geleneksel Auth Logları | `/var/log/auth.log` (varsa) | Kimlik doğrulama olayları, başarılı/başarısız SSH giriş denemeleri, parola değişimleri (düz metin formatı). | `cat`, `grep`, `less`, `tail` | Eski veya yapılandırılmış sistemlerde düz metin olarak tutulan, analistlerin komut satırı araçlarıyla doğrudan hızlıca tarayabildiği kritik güvenlik log kaynağıdır. |
+| **Linux (Ubuntu / VirtualBox)** | Sudo Yetki Yükseltme Kayıtları | Journald / Syslog entegre | Kullanıcıların `sudo` kullanarak gerçekleştirdiği ayrıcalıklı komut çalıştırma denemeleri, başarılı yetki alımları ve hatalı şifreler. | `journalctl _COMM=sudo`, `grep sudo` | Yetkisiz kullanıcıların sistemde ayrıcalık yükseltme (Privilege Escalation) girişimlerini ve yöneticilerin hareketlerini denetlemek için hayati önem taşır.
