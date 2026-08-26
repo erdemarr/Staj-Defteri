@@ -1,4 +1,4 @@
-## Log Envanteri (Gün 1)
+# Log Envanteri (Gün 1)
 
 | Makine / Sistem | Log Kaynağının Adı | Depolandığı Yer (Konum) | Kaydettiği Olay Türleri | Okuma / Sorgulama Aracı | Detaylı Açıklama & Önem |
 | :--- | :--- | :--- | :--- | :--- | :--- |
