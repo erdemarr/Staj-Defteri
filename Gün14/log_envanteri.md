@@ -1,4 +1,4 @@
-# Log Envanteri (Gün 2)
+# Log Envanteri (Gün 3)
 
 Windows varsayılan olay günlükleriyle genişlettiğimiz log envanteri tablosuna, bugün kurduğumuz Sysmon aracı eklenmiştir:
 
