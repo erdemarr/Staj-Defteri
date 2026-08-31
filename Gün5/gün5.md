@@ -91,9 +91,9 @@ Güvensiz kablosuz ağlar, uzaktan çalışırken karşılaşılan temel riskler
 
 | Dönüşüm / İşlem Türü | Geri Döndürülebilir mi? | Anahtar Gerektiriyor mu? | Çıktı Uzunluğu Girdiden Bağımsız mı? | Aynı Girdide Aynı Çıktıyı Üretir mi? | Gerçek Olay Referansı / Araç Çıktısı Örneği | Hizmet Ettiği CIA Ayağı |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Kodlama (Base64)** | **Evet** (Kolayca çözülür) | **Hayır** | **Hayır** (Girdi uzadıkça uzar) | **Evet** (Deterministiktir) | Araç çıktısı: `"erdemarr"` -> `ZXJkZW1hcnI=`[cite: 1] | Güvenlik sağlamaz; veri taşınabilirliği içindir. |
-| **Hashing (SHA-256)** | **Hayır** (Tek yönlüdür) | **Hayır** | **Evet** (Sabit 256-bit / 64 karakter) | **Evet** (Deterministiktir) | Araç çıktısı: `fc98e8e...` (Tek karakter değişiminde tamamen değişen çığ etkisi)[cite: 1] | **Bütünlük (Integrity)** sağlar (Parmak izi). |
-| **Simetrik Şifreleme (AES)** | **Evet** (Anahtar ile çözülür) | **Evet** (Gizli anahtar şarttır) | **Hayır** (Girdi boyutuna göre değişir) | **Hayır** (Rastgele IV nedeniyle değişir) | Araç çıktısı ve `secret.key` anahtar yönetimi uygulaması[cite: 1] | **Gizlilik (Confidentiality)** sağlar. |
+| **Kodlama (Base64)** | **Evet** (Kolayca çözülür) | **Hayır** | **Hayır** (Girdi uzadıkça uzar) | **Evet** (Deterministiktir) | Araç çıktısı: `"erdemarr"` -> `ZXJkZW1hcnI=` | Güvenlik sağlamaz; veri taşınabilirliği içindir. |
+| **Hashing (SHA-256)** | **Hayır** (Tek yönlüdür) | **Hayır** | **Evet** (Sabit 256-bit / 64 karakter) | **Evet** (Deterministiktir) | Araç çıktısı: `fc98e8e...` (Tek karakter değişiminde tamamen değişen çığ etkisi) | **Bütünlük (Integrity)** sağlar (Parmak izi). |
+| **Simetrik Şifreleme (AES)** | **Evet** (Anahtar ile çözülür) | **Evet** (Gizli anahtar şarttır) | **Hayır** (Girdi boyutuna göre değişir) | **Hayır** (Rastgele IV nedeniyle değişir) | Araç çıktısı ve `secret.key` anahtar yönetimi uygulaması | **Gizlilik (Confidentiality)** sağlar. |
 
 ---
 

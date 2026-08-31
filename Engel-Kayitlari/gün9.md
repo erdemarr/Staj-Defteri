@@ -1,8 +1,8 @@
 # Gün 9 - Teknik Engel Kayıtları
 
 ## Engel 1: Wireshark Yerel Arabirim Yakalama Yetki Hatası
-* **Sorun.** Ubuntu üzerinde Wireshark açılıp yerel ağ arayüzlerinde trafik yakalanmaya çalışıldığında, standart kullanıcı yetkileri nedeniyle çekirdek (kernel) seviyesindeki paket yakalama işlemine izin verilmedi ve hata alındı[cite: 1].
-* **Hata mesajı.** `Yerel arabirimlerde yakalama izniniz yok.`[cite: 1]
+* **Sorun.** Ubuntu üzerinde Wireshark açılıp yerel ağ arayüzlerinde trafik yakalanmaya çalışıldığında, standart kullanıcı yetkileri nedeniyle çekirdek (kernel) seviyesindeki paket yakalama işlemine izin verilmedi ve hata alındı.
+* **Hata mesajı.** `Yerel arabirimlerde yakalama izniniz yok.`
 * **Denenenler.** Arayüzden farklı ağ kartları seçilmeye çalışıldı ancak yetki uyarısı devam etti. Arayüz seçim pencereleri tıklandı fakat yakalama başlatılamadı.
 * **Çözüm.** Kullanıcı `wireshark` grubuna eklendi (`sudo usermod -aG wireshark $USER`) ve sistem zorlamalı olarak yeniden başlatıldı (`sudo systemctl reboot -i`). Bu işlem, `dumpcap` ikilisinin alt düzey ağ arayüzlerine erişim yetkisini standart kullanıcıya grup üyeliği aracılığıyla tanımladığı için sorunu çözdü.
 * **Kaynak.** Resmi Wireshark Dokümantasyonu ve Linux Grup Yetkilendirme Rehberi.
