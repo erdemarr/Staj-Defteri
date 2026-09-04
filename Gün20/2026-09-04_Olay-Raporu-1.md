@@ -68,7 +68,7 @@ index=main source="Case1-auth.log" "203.0.113.66"
 
 * **Çıktı:**  
 | user | user_type | count |  
-|---|---|---|
+|---|---|---|  
 | deploy | gerçek/var olan hesap | 19 |  
 | root | gerçek/var olan hesap | 15 |  
 | admin | invalid (sistemde yok) | 12 |  
@@ -111,7 +111,7 @@ index=main source="Case1-auth.log" "Accepted password for deploy"
 
 * **Çıktı:**  
 | _time | src_ip |  
-|---|---|
+|---|---|  
 | 2026-08-24 08:03:11 | 10.0.0.50 |  
 | 2026-08-24 11:12:44 | 10.0.0.50 |  
 | 2026-08-24 14:25:53 | **203.0.113.66** |  
