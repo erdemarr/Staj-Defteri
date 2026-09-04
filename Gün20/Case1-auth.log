@@ -1,0 +1,155 @@
+Aug 24 08:03:11 web01 sshd[1841]: Accepted password for deploy from 10.0.0.50 port 51122 ssh2
+Aug 24 08:03:11 web01 sshd[1841]: pam_unix(sshd:session): session opened for user deploy(uid=1001) by (uid=0)
+Aug 24 08:14:52 web01 sshd[1902]: Accepted password for ayse from 10.0.0.50 port 51140 ssh2
+Aug 24 08:14:52 web01 sshd[1902]: pam_unix(sshd:session): session opened for user ayse(uid=1002) by (uid=0)
+Aug 24 08:21:07 web01 sudo:     ayse : TTY=pts/1 ; PWD=/home/ayse ; USER=root ; COMMAND=/usr/bin/apt update
+Aug 24 08:45:33 web01 sshd[1902]: pam_unix(sshd:session): session closed for user ayse
+Aug 24 09:00:01 web01 CRON[2110]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Aug 24 09:00:01 web01 CRON[2110]: pam_unix(cron:session): session closed for user root
+Aug 24 11:12:44 web01 sshd[2455]: Accepted password for deploy from 10.0.0.50 port 52001 ssh2
+Aug 24 11:12:44 web01 sshd[2455]: pam_unix(sshd:session): session opened for user deploy(uid=1001) by (uid=0)
+Aug 24 11:40:18 web01 sshd[2455]: pam_unix(sshd:session): session closed for user deploy
+Aug 24 14:22:04 web01 sshd[3002]: Invalid user admin from 203.0.113.66 port 43648
+Aug 24 14:22:04 web01 sshd[3002]: Failed password for invalid user admin from 203.0.113.66 port 43648 ssh2
+Aug 24 14:22:05 web01 sshd[3003]: Invalid user admin from 203.0.113.66 port 49012
+Aug 24 14:22:05 web01 sshd[3003]: Failed password for invalid user admin from 203.0.113.66 port 49012 ssh2
+Aug 24 14:22:07 web01 sshd[3004]: Invalid user admin from 203.0.113.66 port 47314
+Aug 24 14:22:07 web01 sshd[3004]: Failed password for invalid user admin from 203.0.113.66 port 47314 ssh2
+Aug 24 14:22:09 web01 sshd[3005]: Invalid user admin from 203.0.113.66 port 43358
+Aug 24 14:22:09 web01 sshd[3005]: Failed password for invalid user admin from 203.0.113.66 port 43358 ssh2
+Aug 24 14:22:13 web01 sshd[3006]: Invalid user admin from 203.0.113.66 port 57870
+Aug 24 14:22:13 web01 sshd[3006]: Failed password for invalid user admin from 203.0.113.66 port 57870 ssh2
+Aug 24 14:22:14 web01 sshd[3007]: Invalid user admin from 203.0.113.66 port 59349
+Aug 24 14:22:14 web01 sshd[3007]: Failed password for invalid user admin from 203.0.113.66 port 59349 ssh2
+Aug 24 14:22:17 web01 sshd[3008]: Invalid user admin from 203.0.113.66 port 41041
+Aug 24 14:22:17 web01 sshd[3008]: Failed password for invalid user admin from 203.0.113.66 port 41041 ssh2
+Aug 24 14:22:18 web01 sshd[3009]: Invalid user admin from 203.0.113.66 port 43070
+Aug 24 14:22:18 web01 sshd[3009]: Failed password for invalid user admin from 203.0.113.66 port 43070 ssh2
+Aug 24 14:22:20 web01 sshd[3010]: Invalid user admin from 203.0.113.66 port 47623
+Aug 24 14:22:20 web01 sshd[3010]: Failed password for invalid user admin from 203.0.113.66 port 47623 ssh2
+Aug 24 14:22:23 web01 sshd[3011]: Invalid user admin from 203.0.113.66 port 59726
+Aug 24 14:22:23 web01 sshd[3011]: Failed password for invalid user admin from 203.0.113.66 port 59726 ssh2
+Aug 24 14:22:24 web01 sshd[3012]: Invalid user admin from 203.0.113.66 port 58390
+Aug 24 14:22:24 web01 sshd[3012]: Failed password for invalid user admin from 203.0.113.66 port 58390 ssh2
+Aug 24 14:22:26 web01 sshd[3013]: Invalid user admin from 203.0.113.66 port 57856
+Aug 24 14:22:26 web01 sshd[3013]: Failed password for invalid user admin from 203.0.113.66 port 57856 ssh2
+Aug 24 14:22:29 web01 sshd[3014]: Invalid user oracle from 203.0.113.66 port 47223
+Aug 24 14:22:29 web01 sshd[3014]: Failed password for invalid user oracle from 203.0.113.66 port 47223 ssh2
+Aug 24 14:22:32 web01 sshd[3015]: Invalid user oracle from 203.0.113.66 port 59309
+Aug 24 14:22:32 web01 sshd[3015]: Failed password for invalid user oracle from 203.0.113.66 port 59309 ssh2
+Aug 24 14:22:34 web01 sshd[3016]: Invalid user oracle from 203.0.113.66 port 40212
+Aug 24 14:22:34 web01 sshd[3016]: Failed password for invalid user oracle from 203.0.113.66 port 40212 ssh2
+Aug 24 14:22:36 web01 sshd[3017]: Invalid user oracle from 203.0.113.66 port 53848
+Aug 24 14:22:36 web01 sshd[3017]: Failed password for invalid user oracle from 203.0.113.66 port 53848 ssh2
+Aug 24 14:22:38 web01 sshd[3018]: Invalid user oracle from 203.0.113.66 port 49105
+Aug 24 14:22:38 web01 sshd[3018]: Failed password for invalid user oracle from 203.0.113.66 port 49105 ssh2
+Aug 24 14:22:40 web01 sshd[3019]: Invalid user oracle from 203.0.113.66 port 47055
+Aug 24 14:22:40 web01 sshd[3019]: Failed password for invalid user oracle from 203.0.113.66 port 47055 ssh2
+Aug 24 14:22:42 web01 sshd[3020]: Invalid user oracle from 203.0.113.66 port 43349
+Aug 24 14:22:42 web01 sshd[3020]: Failed password for invalid user oracle from 203.0.113.66 port 43349 ssh2
+Aug 24 14:22:43 web01 sshd[3021]: Invalid user oracle from 203.0.113.66 port 52449
+Aug 24 14:22:43 web01 sshd[3021]: Failed password for invalid user oracle from 203.0.113.66 port 52449 ssh2
+Aug 24 14:22:44 web01 sshd[3022]: Invalid user oracle from 203.0.113.66 port 51763
+Aug 24 14:22:44 web01 sshd[3022]: Failed password for invalid user oracle from 203.0.113.66 port 51763 ssh2
+Aug 24 14:22:46 web01 sshd[3023]: Invalid user oracle from 203.0.113.66 port 59782
+Aug 24 14:22:46 web01 sshd[3023]: Failed password for invalid user oracle from 203.0.113.66 port 59782 ssh2
+Aug 24 14:22:48 web01 sshd[3024]: Invalid user oracle from 203.0.113.66 port 41423
+Aug 24 14:22:48 web01 sshd[3024]: Failed password for invalid user oracle from 203.0.113.66 port 41423 ssh2
+Aug 24 14:22:52 web01 sshd[3025]: Invalid user oracle from 203.0.113.66 port 55054
+Aug 24 14:22:52 web01 sshd[3025]: Failed password for invalid user oracle from 203.0.113.66 port 55054 ssh2
+Aug 24 14:22:55 web01 sshd[3026]: Invalid user postgres from 203.0.113.66 port 44090
+Aug 24 14:22:55 web01 sshd[3026]: Failed password for invalid user postgres from 203.0.113.66 port 44090 ssh2
+Aug 24 14:22:58 web01 sshd[3027]: Invalid user postgres from 203.0.113.66 port 42582
+Aug 24 14:22:58 web01 sshd[3027]: Failed password for invalid user postgres from 203.0.113.66 port 42582 ssh2
+Aug 24 14:23:01 web01 sshd[3028]: Invalid user postgres from 203.0.113.66 port 49606
+Aug 24 14:23:01 web01 sshd[3028]: Failed password for invalid user postgres from 203.0.113.66 port 49606 ssh2
+Aug 24 14:23:05 web01 sshd[3029]: Invalid user postgres from 203.0.113.66 port 60267
+Aug 24 14:23:05 web01 sshd[3029]: Failed password for invalid user postgres from 203.0.113.66 port 60267 ssh2
+Aug 24 14:23:07 web01 sshd[3030]: Invalid user postgres from 203.0.113.66 port 58918
+Aug 24 14:23:07 web01 sshd[3030]: Failed password for invalid user postgres from 203.0.113.66 port 58918 ssh2
+Aug 24 14:23:09 web01 sshd[3031]: Invalid user postgres from 203.0.113.66 port 42279
+Aug 24 14:23:09 web01 sshd[3031]: Failed password for invalid user postgres from 203.0.113.66 port 42279 ssh2
+Aug 24 14:23:10 web01 sshd[3032]: Invalid user postgres from 203.0.113.66 port 47467
+Aug 24 14:23:10 web01 sshd[3032]: Failed password for invalid user postgres from 203.0.113.66 port 47467 ssh2
+Aug 24 14:23:12 web01 sshd[3033]: Invalid user postgres from 203.0.113.66 port 42614
+Aug 24 14:23:12 web01 sshd[3033]: Failed password for invalid user postgres from 203.0.113.66 port 42614 ssh2
+Aug 24 14:23:14 web01 sshd[3034]: Invalid user postgres from 203.0.113.66 port 43309
+Aug 24 14:23:14 web01 sshd[3034]: Failed password for invalid user postgres from 203.0.113.66 port 43309 ssh2
+Aug 24 14:23:17 web01 sshd[3035]: Invalid user postgres from 203.0.113.66 port 49108
+Aug 24 14:23:17 web01 sshd[3035]: Failed password for invalid user postgres from 203.0.113.66 port 49108 ssh2
+Aug 24 14:23:20 web01 sshd[3036]: Invalid user postgres from 203.0.113.66 port 60830
+Aug 24 14:23:20 web01 sshd[3036]: Failed password for invalid user postgres from 203.0.113.66 port 60830 ssh2
+Aug 24 14:23:22 web01 sshd[3037]: Invalid user postgres from 203.0.113.66 port 45329
+Aug 24 14:23:22 web01 sshd[3037]: Failed password for invalid user postgres from 203.0.113.66 port 45329 ssh2
+Aug 24 14:23:24 web01 sshd[3038]: Invalid user test from 203.0.113.66 port 51641
+Aug 24 14:23:24 web01 sshd[3038]: Failed password for invalid user test from 203.0.113.66 port 51641 ssh2
+Aug 24 14:23:26 web01 sshd[3039]: Invalid user test from 203.0.113.66 port 48748
+Aug 24 14:23:26 web01 sshd[3039]: Failed password for invalid user test from 203.0.113.66 port 48748 ssh2
+Aug 24 14:23:30 web01 sshd[3040]: Invalid user test from 203.0.113.66 port 42339
+Aug 24 14:23:30 web01 sshd[3040]: Failed password for invalid user test from 203.0.113.66 port 42339 ssh2
+Aug 24 14:23:33 web01 sshd[3041]: Invalid user test from 203.0.113.66 port 60806
+Aug 24 14:23:33 web01 sshd[3041]: Failed password for invalid user test from 203.0.113.66 port 60806 ssh2
+Aug 24 14:23:35 web01 sshd[3042]: Invalid user test from 203.0.113.66 port 57502
+Aug 24 14:23:35 web01 sshd[3042]: Failed password for invalid user test from 203.0.113.66 port 57502 ssh2
+Aug 24 14:23:39 web01 sshd[3043]: Invalid user test from 203.0.113.66 port 48021
+Aug 24 14:23:39 web01 sshd[3043]: Failed password for invalid user test from 203.0.113.66 port 48021 ssh2
+Aug 24 14:23:41 web01 sshd[3044]: Invalid user test from 203.0.113.66 port 55147
+Aug 24 14:23:41 web01 sshd[3044]: Failed password for invalid user test from 203.0.113.66 port 55147 ssh2
+Aug 24 14:23:44 web01 sshd[3045]: Invalid user test from 203.0.113.66 port 48845
+Aug 24 14:23:44 web01 sshd[3045]: Failed password for invalid user test from 203.0.113.66 port 48845 ssh2
+Aug 24 14:23:48 web01 sshd[3046]: Invalid user test from 203.0.113.66 port 58250
+Aug 24 14:23:48 web01 sshd[3046]: Failed password for invalid user test from 203.0.113.66 port 58250 ssh2
+Aug 24 14:23:50 web01 sshd[3047]: Invalid user test from 203.0.113.66 port 50626
+Aug 24 14:23:50 web01 sshd[3047]: Failed password for invalid user test from 203.0.113.66 port 50626 ssh2
+Aug 24 14:23:51 web01 sshd[3048]: Invalid user test from 203.0.113.66 port 47505
+Aug 24 14:23:51 web01 sshd[3048]: Failed password for invalid user test from 203.0.113.66 port 47505 ssh2
+Aug 24 14:23:52 web01 sshd[3049]: Invalid user test from 203.0.113.66 port 50336
+Aug 24 14:23:52 web01 sshd[3049]: Failed password for invalid user test from 203.0.113.66 port 50336 ssh2
+Aug 24 14:23:55 web01 sshd[3050]: Failed password for root from 203.0.113.66 port 48773 ssh2
+Aug 24 14:23:56 web01 sshd[3051]: Failed password for root from 203.0.113.66 port 46913 ssh2
+Aug 24 14:23:59 web01 sshd[3052]: Failed password for root from 203.0.113.66 port 50311 ssh2
+Aug 24 14:24:01 web01 sshd[3053]: Failed password for root from 203.0.113.66 port 56358 ssh2
+Aug 24 14:24:04 web01 sshd[3054]: Failed password for root from 203.0.113.66 port 55035 ssh2
+Aug 24 14:24:06 web01 sshd[3055]: Failed password for root from 203.0.113.66 port 48679 ssh2
+Aug 24 14:24:08 web01 sshd[3056]: Failed password for root from 203.0.113.66 port 48081 ssh2
+Aug 24 14:24:12 web01 sshd[3057]: Failed password for root from 203.0.113.66 port 58394 ssh2
+Aug 24 14:24:15 web01 sshd[3058]: Failed password for root from 203.0.113.66 port 48609 ssh2
+Aug 24 14:24:19 web01 sshd[3059]: Failed password for root from 203.0.113.66 port 59155 ssh2
+Aug 24 14:24:22 web01 sshd[3060]: Failed password for root from 203.0.113.66 port 59121 ssh2
+Aug 24 14:24:25 web01 sshd[3061]: Failed password for root from 203.0.113.66 port 51861 ssh2
+Aug 24 14:24:27 web01 sshd[3062]: Failed password for root from 203.0.113.66 port 44532 ssh2
+Aug 24 14:24:30 web01 sshd[3063]: Failed password for root from 203.0.113.66 port 56171 ssh2
+Aug 24 14:24:31 web01 sshd[3064]: Failed password for root from 203.0.113.66 port 41543 ssh2
+Aug 24 14:24:32 web01 sshd[3065]: Failed password for ubuntu from 203.0.113.66 port 45008 ssh2
+Aug 24 14:24:36 web01 sshd[3066]: Failed password for ubuntu from 203.0.113.66 port 45242 ssh2
+Aug 24 14:24:40 web01 sshd[3067]: Failed password for ubuntu from 203.0.113.66 port 53833 ssh2
+Aug 24 14:24:43 web01 sshd[3068]: Failed password for ubuntu from 203.0.113.66 port 42081 ssh2
+Aug 24 14:24:46 web01 sshd[3069]: Failed password for ubuntu from 203.0.113.66 port 52504 ssh2
+Aug 24 14:24:49 web01 sshd[3070]: Failed password for ubuntu from 203.0.113.66 port 55337 ssh2
+Aug 24 14:24:52 web01 sshd[3071]: Failed password for ubuntu from 203.0.113.66 port 48238 ssh2
+Aug 24 14:24:55 web01 sshd[3072]: Failed password for ubuntu from 203.0.113.66 port 40376 ssh2
+Aug 24 14:24:59 web01 sshd[3073]: Failed password for ubuntu from 203.0.113.66 port 43753 ssh2
+Aug 24 14:25:03 web01 sshd[3074]: Failed password for ubuntu from 203.0.113.66 port 57595 ssh2
+Aug 24 14:25:05 web01 sshd[3075]: Failed password for deploy from 203.0.113.66 port 51146 ssh2
+Aug 24 14:25:06 web01 sshd[3076]: Failed password for deploy from 203.0.113.66 port 49617 ssh2
+Aug 24 14:25:09 web01 sshd[3077]: Failed password for deploy from 203.0.113.66 port 45182 ssh2
+Aug 24 14:25:12 web01 sshd[3078]: Failed password for deploy from 203.0.113.66 port 40106 ssh2
+Aug 24 14:25:16 web01 sshd[3079]: Failed password for deploy from 203.0.113.66 port 48630 ssh2
+Aug 24 14:25:19 web01 sshd[3080]: Failed password for deploy from 203.0.113.66 port 45854 ssh2
+Aug 24 14:25:22 web01 sshd[3081]: Failed password for deploy from 203.0.113.66 port 43486 ssh2
+Aug 24 14:25:26 web01 sshd[3082]: Failed password for deploy from 203.0.113.66 port 49779 ssh2
+Aug 24 14:25:30 web01 sshd[3083]: Failed password for deploy from 203.0.113.66 port 56635 ssh2
+Aug 24 14:25:33 web01 sshd[3084]: Failed password for deploy from 203.0.113.66 port 46517 ssh2
+Aug 24 14:25:35 web01 sshd[3085]: Failed password for deploy from 203.0.113.66 port 52252 ssh2
+Aug 24 14:25:37 web01 sshd[3086]: Failed password for deploy from 203.0.113.66 port 57674 ssh2
+Aug 24 14:25:40 web01 sshd[3087]: Failed password for deploy from 203.0.113.66 port 40018 ssh2
+Aug 24 14:25:43 web01 sshd[3088]: Failed password for deploy from 203.0.113.66 port 50621 ssh2
+Aug 24 14:25:46 web01 sshd[3089]: Failed password for deploy from 203.0.113.66 port 40638 ssh2
+Aug 24 14:25:47 web01 sshd[3090]: Failed password for deploy from 203.0.113.66 port 51894 ssh2
+Aug 24 14:25:49 web01 sshd[3091]: Failed password for deploy from 203.0.113.66 port 47846 ssh2
+Aug 24 14:25:50 web01 sshd[3092]: Failed password for deploy from 203.0.113.66 port 47892 ssh2
+Aug 24 14:25:53 web01 sshd[3093]: Accepted password for deploy from 203.0.113.66 port 42580 ssh2
+Aug 24 14:25:53 web01 sshd[3093]: pam_unix(sshd:session): session opened for user deploy(uid=1001) by (uid=0)
+Aug 24 14:25:54 web01 sudo:   deploy : TTY=pts/2 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Aug 24 14:25:58 web01 sudo:   deploy : TTY=pts/2 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/sbin/useradd -m -s /bin/bash svc-update
+Aug 24 14:26:01 web01 useradd[3512]: new user: name=svc-update, UID=1003, GID=1003, home=/home/svc-update, shell=/bin/bash
