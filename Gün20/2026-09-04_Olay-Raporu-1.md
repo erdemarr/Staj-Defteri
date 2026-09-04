@@ -131,10 +131,10 @@ index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 ```
 
 * **Çıktı:**
-| _time | command |
-|---|---|
-| 2026-08-24 14:25:54 | /usr/bin/cat /etc/shadow |
-| 2026-08-24 14:25:58 | /usr/sbin/useradd -m -s /bin/bash svc-update |
+| _time | command |  
+|---|---|  
+| 2026-08-24 14:25:54 | /usr/bin/cat /etc/shadow |  
+| 2026-08-24 14:25:58 | /usr/sbin/useradd -m -s /bin/bash svc-update |  
 
 * **Bulgu:** Saldırgan, giriş yaptıktan sonraki **8 saniye içinde** iki kritik işlem gerçekleştirdi:
 1. `sudo cat /etc/shadow` — sistemdeki tüm kullanıcıların parola hash'lerine erişim denemesi.
