@@ -45,10 +45,10 @@ index=main source="Case1-auth.log" "Failed password"
 | sort -count
 ```
 
-* **Çıktı:**
-| src_ip | count |
-|---|---|
-| 203.0.113.66 | 91 |
+* **Çıktı:**  
+| src_ip | count |  
+|---|---|  
+| 203.0.113.66 | 91 |  
 
 * **Bulgu:** Tüm başarısız denemeler tek bir dış IP adresinden (`203.0.113.66`) geldi. Bu IP'den toplam **91 başarısız SSH giriş denemesi** yapılmıştır.
 
@@ -66,16 +66,16 @@ index=main source="Case1-auth.log" "203.0.113.66"
 | sort -count
 ```
 
-* **Çıktı:**
-| user | user_type | count |
+* **Çıktı:**  
+| user | user_type | count |  
 |---|---|---|
-| deploy | gerçek/var olan hesap | 19 |
-| root | gerçek/var olan hesap | 15 |
-| admin | invalid (sistemde yok) | 12 |
-| oracle | invalid (sistemde yok) | 12 |
-| postgres | invalid (sistemde yok) | 12 |
-| test | invalid (sistemde yok) | 12 |
-| ubuntu | gerçek/var olan hesap | 10 |
+| deploy | gerçek/var olan hesap | 19 |  
+| root | gerçek/var olan hesap | 15 |  
+| admin | invalid (sistemde yok) | 12 |  
+| oracle | invalid (sistemde yok) | 12 |  
+| postgres | invalid (sistemde yok) | 12 |  
+| test | invalid (sistemde yok) | 12 |  
+| ubuntu | gerçek/var olan hesap | 10 |  
 
 * **Bulgu:** Saldırgan sistematik bir kullanıcı adı listesi denedi (yaygın sunucu/veritabanı hesap adları: admin, oracle, postgres, test — bunlar web01'de mevcut olmayan hesaplardır). Ayrıca sistemde gerçekten var olan `root`, `ubuntu` ve `deploy` hesaplarına karşı da parola denemesi yaptı. `deploy` hesabı en çok denenen (19 deneme) hesap oldu ve sonunda ele geçirilen hesap da bu oldu.
 
@@ -90,10 +90,10 @@ index=main source="Case1-auth.log" "203.0.113.66" "Accepted password"
 | table _time, user, src_ip
 ```
 
-* **Çıktı:**
-| _time | user | src_ip |
-|---|---|---|
-| 2026-08-24 14:25:53 | deploy | 203.0.113.66 |
+* **Çıktı:**  
+| _time | user | src_ip |  
+|---|---|---|  
+| 2026-08-24 14:25:53 | deploy | 203.0.113.66 |  
 
 * **Bulgu:** Evet. 91 başarısız denemenin hemen ardından, **24 Ağustos 2026 saat 14:25:53**'te `203.0.113.66` IP adresinden **`deploy`** hesabıyla başarılı bir SSH girişi gerçekleşti.
 
@@ -109,12 +109,12 @@ index=main source="Case1-auth.log" "Accepted password for deploy"
 | sort _time
 ```
 
-* **Çıktı:**
-| _time | src_ip |
+* **Çıktı:**  
+| _time | src_ip |  
 |---|---|
-| 2026-08-24 08:03:11 | 10.0.0.50 |
-| 2026-08-24 11:12:44 | 10.0.0.50 |
-| 2026-08-24 14:25:53 | **203.0.113.66** |
+| 2026-08-24 08:03:11 | 10.0.0.50 |  
+| 2026-08-24 11:12:44 | 10.0.0.50 |  
+| 2026-08-24 14:25:53 | **203.0.113.66** |  
 
 * **Bulgu:** `deploy` hesabı o gün daha önce iki kez giriş yapmış ve her ikisinde de kaynak IP **iç ağ adresi** (`10.0.0.50`) olmuştur. 14:25:53'teki giriş ise **dış/internet IP'sinden** (`203.0.113.66`) gelmiştir. web01'in normalde yalnızca iç ağdan erişilen bir sunucu olduğu göz önüne alındığında, bu net bir davranış anomalisidir ve girişin `deploy` kullanıcısının kendisi tarafından değil, hesabı ele geçiren bir saldırgan tarafından yapıldığını doğrular.
 
@@ -130,7 +130,7 @@ index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 | sort _time
 ```
 
-* **Çıktı:**
+* **Çıktı:**  
 | _time | command |  
 |---|---|  
 | 2026-08-24 14:25:54 | /usr/bin/cat /etc/shadow |  
