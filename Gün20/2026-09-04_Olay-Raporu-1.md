@@ -1,10 +1,10 @@
 # Olay Raporu
 
-**Sistem:** web01 (Linux sunucu)
-**Önem Derecesi:** Yüksek
-**Analist:** L1 Analist
-**Rapor Tarihi:** 04.09.2026
-**İncelenen Veri:** Case1-auth.log (Case1-auth.log kaydı, Splunk'a Add Data > Upload ile yüklendi, sourcetype=linux_secure, 155 event)
+* **Sistem:** web01 (Linux sunucu)
+* **Önem Derecesi:** Yüksek
+* **Analist:** L1 Analist
+* **Rapor Tarihi:** 04.09.2026
+* **İncelenen Veri:** Case1-auth.log (Case1-auth.log kaydı, Splunk'a Add Data > Upload ile yüklendi, sourcetype=linux_secure, 155 event)
 
 ---
 
@@ -37,7 +37,7 @@ Bu rapor, olayın Splunk üzerinde SPL sorgularıyla adım adım incelenmesini, 
 
 ### Soru 1 & 2 — Şüpheli aktivite hangi IP'den geldi ve kaç başarısız deneme yapıldı?
 
-**SPL Sorgusu:**
+* **SPL Sorgusu:**
 ```spl
 index=main source="Case1-auth.log" "Failed password"
 | rex "from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
@@ -45,18 +45,18 @@ index=main source="Case1-auth.log" "Failed password"
 | sort -count
 ```
 
-**Çıktı:**
+* **Çıktı:**
 | src_ip | count |
 |---|---|
 | 203.0.113.66 | 91 |
 
-**Bulgu:** Tüm başarısız denemeler tek bir dış IP adresinden (`203.0.113.66`) geldi. Bu IP'den toplam **91 başarısız SSH giriş denemesi** yapılmıştır.
+* **Bulgu:** Tüm başarısız denemeler tek bir dış IP adresinden (`203.0.113.66`) geldi. Bu IP'den toplam **91 başarısız SSH giriş denemesi** yapılmıştır.
 
 ---
 
 ### Soru 3 — Saldırgan hangi kullanıcı adlarını denedi, hangileri geçersiz (invalid user) hesaptı?
 
-**SPL Sorgusu:**
+* **SPL Sorgusu:**
 ```spl
 index=main source="Case1-auth.log" "203.0.113.66"
 | rex "for (?<invalid_flag>invalid user )?(?<user>\S+) from"
@@ -66,7 +66,7 @@ index=main source="Case1-auth.log" "203.0.113.66"
 | sort -count
 ```
 
-**Çıktı:**
+* **Çıktı:**
 | user | user_type | count |
 |---|---|---|
 | deploy | gerçek/var olan hesap | 19 |
@@ -77,31 +77,31 @@ index=main source="Case1-auth.log" "203.0.113.66"
 | test | invalid (sistemde yok) | 12 |
 | ubuntu | gerçek/var olan hesap | 10 |
 
-**Bulgu:** Saldırgan sistematik bir kullanıcı adı listesi denedi (yaygın sunucu/veritabanı hesap adları: admin, oracle, postgres, test — bunlar web01'de mevcut olmayan hesaplardır). Ayrıca sistemde gerçekten var olan `root`, `ubuntu` ve `deploy` hesaplarına karşı da parola denemesi yaptı. `deploy` hesabı en çok denenen (19 deneme) hesap oldu ve sonunda ele geçirilen hesap da bu oldu.
+* **Bulgu:** Saldırgan sistematik bir kullanıcı adı listesi denedi (yaygın sunucu/veritabanı hesap adları: admin, oracle, postgres, test — bunlar web01'de mevcut olmayan hesaplardır). Ayrıca sistemde gerçekten var olan `root`, `ubuntu` ve `deploy` hesaplarına karşı da parola denemesi yaptı. `deploy` hesabı en çok denenen (19 deneme) hesap oldu ve sonunda ele geçirilen hesap da bu oldu.
 
 ---
 
 ### Soru 4 — Başarısız denemelerden sonra başarılı giriş oldu mu? Hangi hesap, hangi tarih-saat?
 
-**SPL Sorgusu:**
+* **SPL Sorgusu:**
 ```spl
 index=main source="Case1-auth.log" "203.0.113.66" "Accepted password"
 | rex "Accepted password for (?<user>\S+) from"
 | table _time, user, src_ip
 ```
 
-**Çıktı:**
+* **Çıktı:**
 | _time | user | src_ip |
 |---|---|---|
 | 2026-08-24 14:25:53 | deploy | 203.0.113.66 |
 
-**Bulgu:** Evet. 91 başarısız denemenin hemen ardından, **24 Ağustos 2026 saat 14:25:53**'te `203.0.113.66` IP adresinden **`deploy`** hesabıyla başarılı bir SSH girişi gerçekleşti.
+* **Bulgu:** Evet. 91 başarısız denemenin hemen ardından, **24 Ağustos 2026 saat 14:25:53**'te `203.0.113.66` IP adresinden **`deploy`** hesabıyla başarılı bir SSH girişi gerçekleşti.
 
 ---
 
 ### Soru 5 — Ele geçirilen hesap normalde hangi IP'den giriş yapıyordu? Karşılaştırma ne söylüyor?
 
-**SPL Sorgusu:**
+* **SPL Sorgusu:**
 ```spl
 index=main source="Case1-auth.log" "Accepted password for deploy"
 | rex "from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
@@ -109,20 +109,20 @@ index=main source="Case1-auth.log" "Accepted password for deploy"
 | sort _time
 ```
 
-**Çıktı:**
+* **Çıktı:**
 | _time | src_ip |
 |---|---|
 | 2026-08-24 08:03:11 | 10.0.0.50 |
 | 2026-08-24 11:12:44 | 10.0.0.50 |
 | 2026-08-24 14:25:53 | **203.0.113.66** |
 
-**Bulgu:** `deploy` hesabı o gün daha önce iki kez giriş yapmış ve her ikisinde de kaynak IP **iç ağ adresi** (`10.0.0.50`) olmuştur. 14:25:53'teki giriş ise **dış/internet IP'sinden** (`203.0.113.66`) gelmiştir. web01'in normalde yalnızca iç ağdan erişilen bir sunucu olduğu göz önüne alındığında, bu net bir davranış anomalisidir ve girişin `deploy` kullanıcısının kendisi tarafından değil, hesabı ele geçiren bir saldırgan tarafından yapıldığını doğrular.
+* **Bulgu:** `deploy` hesabı o gün daha önce iki kez giriş yapmış ve her ikisinde de kaynak IP **iç ağ adresi** (`10.0.0.50`) olmuştur. 14:25:53'teki giriş ise **dış/internet IP'sinden** (`203.0.113.66`) gelmiştir. web01'in normalde yalnızca iç ağdan erişilen bir sunucu olduğu göz önüne alındığında, bu net bir davranış anomalisidir ve girişin `deploy` kullanıcısının kendisi tarafından değil, hesabı ele geçiren bir saldırgan tarafından yapıldığını doğrular.
 
 ---
 
 ### Soru 6 — Saldırgan başarılı girişten sonra hangi işlemleri yaptı?
 
-**SPL Sorgusu:**
+* **SPL Sorgusu:**
 ```spl
 index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 | rex "COMMAND=(?<command>.+)$"
@@ -130,13 +130,13 @@ index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 | sort _time
 ```
 
-**Çıktı:**
+* **Çıktı:**
 | _time | command |
 |---|---|
 | 2026-08-24 14:25:54 | /usr/bin/cat /etc/shadow |
 | 2026-08-24 14:25:58 | /usr/sbin/useradd -m -s /bin/bash svc-update |
 
-**Bulgu:** Saldırgan, giriş yaptıktan sonraki **8 saniye içinde** iki kritik işlem gerçekleştirdi:
+* **Bulgu:** Saldırgan, giriş yaptıktan sonraki **8 saniye içinde** iki kritik işlem gerçekleştirdi:
 1. `sudo cat /etc/shadow` — sistemdeki tüm kullanıcıların parola hash'lerine erişim denemesi.
 2. `sudo useradd -m -s /bin/bash svc-update` — root yetkisiyle, meşru görünümlü isimli (`svc-update`) yeni bir kullanıcı hesabı oluşturma. Bu hesap 14:26:01'de sistemde aktif hale gelmiştir.
 
@@ -151,7 +151,7 @@ index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 | OS Credential Dumping: /etc/passwd and /etc/shadow | T1003.008 | `sudo cat /etc/shadow` komutu ile parola hash'lerine erişim denemesi |
 | Create Account: Local Account | T1136.001 | `svc-update` adlı yeni root-yetkili hesabın oluşturulması (kalıcılık amaçlı) |
 
-**Değerlendirme:** Olay, klasik bir **brute-force → hesap ele geçirme → keşif/credential access → kalıcılık** saldırı zincirini takip etmektedir. Otomatize bir araç kullanıldığı, deneme hızından (ortalama 2-3 saniyede bir deneme) ve sistematik kullanıcı adı listesinden anlaşılmaktadır.
+* **Değerlendirme:** Olay, klasik bir **brute-force → hesap ele geçirme → keşif/credential access → kalıcılık** saldırı zincirini takip etmektedir. Otomatize bir araç kullanıldığı, deneme hızından (ortalama 2-3 saniyede bir deneme) ve sistematik kullanıcı adı listesinden anlaşılmaktadır.
 
 ---
 
@@ -159,13 +159,13 @@ index=main source="Case1-auth.log" "deploy" ("sudo" OR "useradd")
 
 Bu olay yalnızca bir "deneme" değil, **gerçekleşmiş bir güvenlik ihlalidir**. Kurum açısından potansiyel sonuçları:
 
-- **Hesap ele geçirme (confirmed):** `deploy` servis hesabı saldırganın kontrolüne geçmiştir. Bu hesabın sahip olduğu tüm sudo yetkileri saldırgan tarafından kullanılabilir hale gelmiştir.
-- **Kimlik bilgisi ifşası riski:** `/etc/shadow` dosyasının okunmuş olması, sistemdeki tüm kullanıcı hesaplarının parola hash'lerinin saldırganın eline geçmiş olabileceği anlamına gelir. Zayıf parolalar offline olarak kırılabilir ve bu, diğer hesapların (`root` dahil) da ele geçirilmesine yol açabilir.
-- **Kalıcı arka kapı (persistence) riski:** `svc-update` adında, kasıtlı olarak görünen bir hesap oluşturulmuştur. Bu hesap fark edilmezse saldırgan, ilk giriş noktası (deploy hesabı) kapatılsa bile sisteme erişimini sürdürebilir.
-- **Yanal hareket (lateral movement) riski:** web01 iç ağa bağlı bir sunucu olduğundan, ele geçirilen bu makine üzerinden iç ağdaki diğer sistemlere sıçrama denemesi yapılmış olabilir (bu rapor kapsamındaki log verisinde bu yönde doğrudan kanıt yoktur, ancak risk olarak değerlendirilmelidir).
-- **İtibar ve uyumluluk riski:** Sunucuda hassas veri varsa (müşteri verisi, iç sistem bilgisi vb.), yetkisiz erişim veri ihlali bildirim yükümlülükleri doğurabilir.
+* **Hesap ele geçirme (confirmed):** `deploy` servis hesabı saldırganın kontrolüne geçmiştir. Bu hesabın sahip olduğu tüm sudo yetkileri saldırgan tarafından kullanılabilir hale gelmiştir.
+* **Kimlik bilgisi ifşası riski:** `/etc/shadow` dosyasının okunmuş olması, sistemdeki tüm kullanıcı hesaplarının parola hash'lerinin saldırganın eline geçmiş olabileceği anlamına gelir. Zayıf parolalar offline olarak kırılabilir ve bu, diğer hesapların (`root` dahil) da ele geçirilmesine yol açabilir.
+* **Kalıcı arka kapı (persistence) riski:** `svc-update` adında, kasıtlı olarak görünen bir hesap oluşturulmuştur. Bu hesap fark edilmezse saldırgan, ilk giriş noktası (deploy hesabı) kapatılsa bile sisteme erişimini sürdürebilir.
+* **Yanal hareket (lateral movement) riski:** web01 iç ağa bağlı bir sunucu olduğundan, ele geçirilen bu makine üzerinden iç ağdaki diğer sistemlere sıçrama denemesi yapılmış olabilir (bu rapor kapsamındaki log verisinde bu yönde doğrudan kanıt yoktur, ancak risk olarak değerlendirilmelidir).
+* **İtibar ve uyumluluk riski:** Sunucuda hassas veri varsa (müşteri verisi, iç sistem bilgisi vb.), yetkisiz erişim veri ihlali bildirim yükümlülükleri doğurabilir.
 
-Özetle: "91 başarısız giriş denemesi" tek başına bir bulgudur; ancak bunun bir hesabın ele geçirilmesi, kimlik bilgisi erişimi ve kalıcılık girişimiyle sonuçlanmış olması, kurumun bu olayı **düşük öncelikli bir alarm değil, aktif bir ihlal** olarak ele alması gerektiği anlamına gelir.
+Özetle, "91 başarısız giriş denemesi" tek başına bir bulgudur; ancak bunun bir hesabın ele geçirilmesi, kimlik bilgisi erişimi ve kalıcılık girişimiyle sonuçlanmış olması, kurumun bu olayı **düşük öncelikli bir alarm değil, aktif bir ihlal** olarak ele alması gerektiği anlamına gelir.
 
 ---
 
