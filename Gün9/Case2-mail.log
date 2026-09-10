@@ -1,0 +1,7 @@
+2026-09-14T08:31:20 mailgw smtp-gw: msgid=<a91@partner.com> from=<muhasebe@partner.com> to=<b.kaya@company.local> subject="Eylul mutabakati" attachment="mutabakat.pdf" spf=pass dkim=pass disposition=delivered
+2026-09-14T08:47:05 mailgw smtp-gw: msgid=<b02@company.local> from=<ik@company.local> to=<all-staff@company.local> subject="Bayram tatili duyurusu" spf=pass dkim=pass disposition=delivered
+2026-09-14T09:03:48 mailgw smtp-gw: msgid=<c14@bank.com.tr> from=<noreply@bank.com.tr> to=<finans@company.local> subject="Hesap ekstresi" attachment="ekstre_eylul.pdf" spf=pass dkim=pass disposition=delivered
+2026-09-14T09:12:04 mailgw smtp-gw: connect from unknown[45.137.21.88]
+2026-09-14T09:12:05 mailgw smtp-gw: msgid=<9f23c@acme-invoices.com> from=<billing@acme-invoices.com> to=<b.kaya@company.local> subject="Fatura #2026-4471 Odeme Bekliyor" attachment="Fatura_2026_4471.docm" attach_sha256=dd50d653c274434bcd62fbde66b49e144ac0658f844ea0528b3cc035dc3a2540 spf=fail dkim=none disposition=delivered
+2026-09-14T09:20:11 mailgw smtp-gw: msgid=<d55@partner.com> from=<satis@partner.com> to=<b.kaya@company.local> subject="Teklif revizyonu" attachment="teklif_v2.xlsx" spf=pass dkim=pass disposition=delivered
+2026-09-14T10:02:33 mailgw smtp-gw: msgid=<e77@company.local> from=<b.kaya@company.local> to=<muhasebe@partner.com> subject="RE: Eylul mutabakati" spf=pass dkim=pass disposition=delivered

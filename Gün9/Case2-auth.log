@@ -1,0 +1,10 @@
+Sep 14 03:00:04 app-db01 sshd[1120]: Accepted publickey for svc-backup from 192.168.30.10 port 40122 ssh2: RSA SHA256:a9LYXAmc4tp6DnjefCcOjcZRLi5tyn2cJxK4FtA/tMg
+Sep 14 03:00:04 app-db01 sshd[1120]: pam_unix(sshd:session): session opened for user svc-backup(uid=1500) by (uid=0)
+Sep 14 03:12:41 app-db01 sshd[1120]: pam_unix(sshd:session): session closed for user svc-backup
+Sep 14 08:22:10 app-db01 sshd[2210]: Accepted password for ayse from 192.168.30.15 port 44880 ssh2
+Sep 14 08:22:10 app-db01 sshd[2210]: pam_unix(sshd:session): session opened for user ayse(uid=1002) by (uid=0)
+Sep 14 09:05:33 app-db01 sshd[2210]: pam_unix(sshd:session): session closed for user ayse
+Sep 14 10:31:44 app-db01 sshd[8123]: Accepted password for svc-backup from 192.168.20.45 port 44122 ssh2
+Sep 14 10:31:44 app-db01 sshd[8123]: pam_unix(sshd:session): session opened for user svc-backup(uid=1500) by (uid=0)
+Sep 14 10:33:02 app-db01 sudo:   svc-backup : TTY=pts/0 ; PWD=/home/svc-backup ; USER=root ; COMMAND=/usr/bin/tar -czf /tmp/db_dump.tgz /var/lib/mysql/customers
+Sep 14 10:36:20 app-db01 sshd[8123]: pam_unix(sshd:session): session closed for user svc-backup
