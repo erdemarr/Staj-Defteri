@@ -2,7 +2,7 @@
 
 ## Akış ve Zaman Dağılımı
 
-| # | Bölüm | Amaç / İçerik notu (yarın doldurulacak) |
+| # | Bölüm | Süre | Amaç / İçerik notu (yarın doldurulacak) |
 |---|---|---|---|
 | 1 | **Açılış** | ~1 dk | İlk olarak dinleyici olayın ne olduğunu anlamalı: tek cümlelik özet + ciddiyet ("bir e-posta, iki sistem, muhtemel veri sızıntısı") |
 | 2 | **Giriş Noktası** | ~1.5 dk | Kimlik avı e-postası - hızlı geç, sadece SPF/DKIM fail + saldırgan IP'sinin e-posta göndermek için de kullanıldığı detayı |
