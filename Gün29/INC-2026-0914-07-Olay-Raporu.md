@@ -196,6 +196,8 @@ Her iddia, ne kadar sağlam olduğuna göre üç kategoride etiketlenmiştir.
 
 **Birincil teknik:** T1003.001 - LSASS'tan kimlik bilgisi çalma, saldırının tek makineden kuruma yayılmasını mümkün kılan dönüm noktası.
 
+**Not:** Bilinen Tehdit İstihbaratıyla Karşılaştırma. Bu vakadaki teknikler (kimlik avı -> PowerShell -> SSH ile yanal hareket), kamuya açık tehdit istihbaratında iyi belgelenmiş davranış kalıplarıyla genel hatlarıyla örtüşüyor - özellikle ağır PowerShell kullanımı ve SSH tabanlı yanal hareket. Ancak bu olayın en kritik iki tekniği (LSASS bellek dökümüyle kimlik bilgisi çalma ve zamanlanmış görevle kalıcılık), incelenen kamuya açık kaynaklarda belirli bir gruba özgü olarak listelenmiyor. Bu olay için herhangi bir bilinen tehdit grubuna atıf yapılmamıştır - teknik dizilim tanıdık olsa da, araç/altyapı imzası düzeyinde bir eşleşme aranmış ve bulunamamıştır.
+
 ---
 
 ## 7. Etki
