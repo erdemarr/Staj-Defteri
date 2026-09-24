@@ -40,4 +40,4 @@ Kendi vakamda gördüğüm tekniklerden hangileri bu raporda da geçiyor, karş�
 
 **Değişiklik:** Mandiant'ın "bunu bulamadık" tarzı açık negatif ifadesinden esinlenerek, raporuma MITRE eşlemesi bölümünün sonuna şu notu ekledim: *incelenen tekniklerin bilinen bir tehdit grubuna (ör. FIN7) özgü araç/altyapı imzasıyla eşleşip eşleşmediğini kontrol ettim ve böyle bir eşleşme bulunmadığını, bu olayın bağımsız bir vaka olarak değerlendirilmesi gerektiğini açıkça belirttim.* Bu, "atıf yapmadım" ile "atıf yapmayı denedim ve bulamadım" arasındaki farkı gösteriyor - ikincisi çok daha güçlü bir ifade biçimi.
 
-Uygulandı: `INC-2026-0914-07-Olay-Raporu-Taslak.md`, Bölüm 6 sonu.
+Uygulandı: `INC-2026-0914-07-Olay-Raporu.md`, Bölüm 6 sonu.
